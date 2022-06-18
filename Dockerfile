@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
 
 RUN chgrp -R 0 /talktohelp \
     && chmod -R g=u /talktohelp \
-    && pip install pip --upgrade \
-    && pip install -r requirements.txt
+    && pip install pip --upgrade 
+ 
 EXPOSE $PORT
 
 CMD gunicorn app:server --bind 0.0.0.0:$PORT --preload
